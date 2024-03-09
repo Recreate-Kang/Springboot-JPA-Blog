@@ -9,6 +9,8 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -33,6 +35,9 @@ public class Board {
     @ManyToOne // Many=Board, User = One
     @JoinColumn(name="userId")
     private User user;
+
+    @OneToMany(mappedBy="board",fetch=FetchType.EAGER)
+    private List<Reply> reply;
 
     @CreationTimestamp
     private Timestamp createDate;

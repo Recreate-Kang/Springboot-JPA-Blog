@@ -22,7 +22,7 @@ public class User {
     @Id//primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)//프로젝트의 DB 넘버링 전략을 따른다
     private int id; //시퀀스, auto_increment
-    @Column(nullable=false, length = 30)
+    @Column(nullable=false, length = 30,unique = true)
     private String username;
     @Column(nullable = false,length = 100)//해쉬 암호화
     private String password;
